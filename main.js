@@ -649,6 +649,7 @@ function createConnectingLine(point1, point2, color) {
     particleCount: particleCount
   };
   
+  particleSystem.userData.merging = false;
   return particleSystem;
 }
 
@@ -888,14 +889,13 @@ let lineColor;
 						sphere2.position,
 						lineColor
 					);
-					
+
 					world.add(newLine);
 					connectingLines[k] = newLine;
 				}
 			}
 		}
 	}
-	updateConnectingLines();
 
 	// Render scene
 	renderer.render(scene, camera);
